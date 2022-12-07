@@ -1,0 +1,11 @@
+# Log file
+*.log
+
+.DS_Store
+*.aux
+*.bbl
+*.blg
+*.tcp
+*.toc
+*.tps
+/report.synctex.gz

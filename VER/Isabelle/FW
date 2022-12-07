@@ -1,0 +1,11 @@
+theory FW
+import Main
+
+begin
+
+
+lemma implication_introduction:
+
+  "X --> 
+
+end

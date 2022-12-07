@@ -1,0 +1,106 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 6CCS3PRJ Final Year Individual Project Report
+% ruihan.ji@kcl.ac.uk
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{informatics-report}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage[square,sort,comma,numbers]{natbib} %References
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Front Matter - project title, name, supervisor name and date
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{6CCS3PRJ Final Year\\\vspace{0.2cm}Individual Project Report Title}
+\author{Rui Han Ji Chen}
+\studentID{K20027110}
+\supervisor{Christopher Hampson}
+
+\date{\today}
+
+\abstractFile{FrontMatter/abstract.tex}
+\ackFile{FrontMatter/acknowledgements.tex} %Remove line if you do not want acknowledgements
+
+\begin{document}
+\createFrontMatter
+\onehalfspacing
+\tableofcontents
+\doublespacing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Report Content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% You can write each chapter directly here or in a separate .tex file and use the include command.
+
+\chapter{Introduction}
+
+
+The Nucleic acid sequence is the set of characters that biologists use to represent the order of the nuclearbase (base) 
+of DNA or RNA, the four letters used to represent are A, C, G and T (representing adenine, cytosine, guanine and 
+thymine), in case of RNA, U (Uracil) would replace T. 
+
+Every base sequence has its complementary as well as the characters, the letters are paired as A for T and C for G, so 
+for example, the complementary sequence of ``ATCG'' would be ``TAGC''. This is essentially a stringology research, 
+analyzing the sequence of the genetic code is important for the bioinformatics as this can be used to understand why
+some living thing functions that way and also compare the sequence alignment to highlight the relationship between
+different sequences. 
+ 
+\section{Motivation}
+
+After this long period of Covid pandemic, I understood how biology has such an impactful influence to our life, but at 
+the same time I also noticed the benefits that computing can bring to traditional biology, eventhough there are already
+algorithms that can solve the problem fair easily, however, I will focus my research on a more specific topic. The 
+efficiency when calculating the sequence analysis can be resolved by better algorithm designs, as programmers, we 
+can provide a better environment for other scientific researches. 
+
+\section{Project aims}
+
+The main objective of the project would be the deep research on Longest Common Subsequence problem which matches with
+the concept of sequence alignment in biology, being a NP-Complete problem also aligns with the Computer Science theme. 
+To go further with the idea of more efficiency, I want to compare different algorithms with some other s to see the 
+differences in different dimensions (Speed would be one dimension as well as space). I will research and explain
+the background logic of different kind of algorithms and also build my own one and also compare it with other ones.
+
+The other objective would be the idea of building an algorithm application that can be used for a real-life scenario,
+performing different experiments and functionalities, so for biologists who are not that familiar with computing can 
+use the program or even build a similar one by just reading this project. 
+
+
+\section{Report Structure}
+
+The report will be started with a bit of background information about the concept of NP and NP-Completeness, as well
+as understanding what is the Longest Common Subsequence problem and how its importance in biological researches by 
+reviewing real life examples.
+
+The next part would begin with understanding different kind of algorithms to solve LCS problems and compare them, this
+section will also contain the problems of those algorithms and conclude with an idea that would fit best for a real life
+scenario by analyzing in different complexity dimensions.
+
+The following section will follow with implementation of the algorithm as well as creating the final product for the
+research and also some testing of both real-life and hypothetical scenarios and providing the evidences of its viability.
+
+Finally, the report will cover the considerations of ethical, professional and legal issues during the process of
+development, and at last, it there will be a conclusion chapter which summarizes the learning curve and final outcome,
+and also a small view for a future deeper research. 
+
+\include{Chapters/Background}
+\include{Chapters/Body}
+\include{Chapters/DesignSpecification}
+\include{Chapters/Implementation}
+\include{Chapters/ProfessionalIssues}
+\include{Chapters/Evaluation}
+\include{Chapters/Conclusion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% References
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{plain}
+\bibliography{references}
+\addcontentsline{toc}{section}{Bibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Appendices
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\include{Appendices/appendix}
+\include{Appendices/UserGuide}
+\include{Appendices/SourceCode}
+\end{document}
