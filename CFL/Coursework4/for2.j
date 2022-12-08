@@ -1,5 +1,5 @@
 
-.class public factor.factor
+.class public for2.for2
 .super java/lang/Object
 
 .method public static write(I)V 
@@ -62,34 +62,30 @@ Label2:
 
 ; COMPILED CODE STARTS
 
-   ldc 20
-   istore 0 		; n
-   ldc 2
-   istore 1 		; f
+   ldc 1
+   istore 0 		; i
 Loop_begin_0:
-   iload 1 		; f
-   iload 0 		; n
-   ldc 2
-   idiv
+   iload 0 		; i
+   ldc 10
+   if_icmpgt Loop_end_1
+   ldc 1
+   istore 0 		; i
+Loop_begin_2:
+   iload 0 		; i
+   ldc 10
+   if_icmpgt Loop_end_3
+   iload 0 		; i
+   invokestatic for2/for2/write(I)V
+   iload 0 		; i
    ldc 1
    iadd
-   if_icmpge Loop_end_1
-   iload 0 		; n
-   iload 1 		; f
-   idiv
-   iload 1 		; f
-   imul
-   iload 0 		; n
-   if_icmpne If_else_2
-   iload 1 		; f
-   invokestatic factor/factor/write(I)V
-   goto If_end_3
-If_else_2:
-If_end_3:
-   iload 1 		; f
+   istore 0 		; i
+   goto Loop_begin_2
+Loop_end_3:
+   iload 0 		; i
    ldc 1
    iadd
-   istore 1 		; f
+   istore 0 		; i
    goto Loop_begin_0
 Loop_end_1:
 
