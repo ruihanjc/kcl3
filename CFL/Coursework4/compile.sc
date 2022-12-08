@@ -239,7 +239,7 @@ val DIGIT = RANGE2("0123456789")
 val ID = LET ~  ("_" | LET | DIGIT).% 
 val DIGIT2 = RANGE2("123456789")
 val NUM = "0" | DIGIT2 ~ DIGIT.%
-val KEYWORD : Rexp = "skip" | "while" | "do" | "if" | "then" | "else" | "read" | "write" | "to" | "for" | "true" | "false"
+val KEYWORD : Rexp = "skip" | "while" | "do" | "if" | "then" | "else" | "read" | "write" | "upto" | "for" | "true" | "false"
 val SEMI: Rexp = ";"
 val OP: Rexp = ":=" | "=" | "-" | "+" | "*" | "!=" | "<" | ">" | "==" | "+=" | ":=" | "&&" | "||" | "/" | "%"
 val WHITESPACE = PLUS2(" " | "\n" | "\t" | "\r")
@@ -374,6 +374,7 @@ case class Assign(s: String, a: AExp) extends Stmt
 case class Read(s: String) extends Stmt
 case class WriteVar(s: String) extends Stmt
 case class WriteStr(s: String) extends Stmt
+case class ForLoop(a1: AExp, a2: AExp , bl: Block) extends Stmt
 
 case class Var(s: String) extends AExp
 case class Num(i: Int) extends AExp
@@ -426,7 +427,9 @@ lazy val Stmt: Parser[List[Token], Stmt] =
    (p"read" ~ p"(" ~ IdParser ~ p")").map[Stmt]{ case _ ~ _ ~ y ~ _ => Read(y) } ||
    (p"if" ~ BExp ~ p"then" ~ Block ~ p"else" ~ Block)
      .map[Stmt]{ case _ ~ y ~ _ ~ u ~ _ ~ w => If(y, u, w) } ||
-   (p"while" ~ BExp ~ p"do" ~ Block).map[Stmt]{ case _ ~ y ~ _ ~ w => While(y, w) })   
+   (p"while" ~ BExp ~ p"do" ~ Block).map[Stmt]{ case _ ~ y ~ _ ~ w => While(y, w) } ||
+   (p"for" ~ IdParser ~ p":=" ~ AExp ~ p"upto" ~ AExp ~ p"do" ~ Block)
+   .map[Stmt]{ case _ ~ _ ~ _ ~ y ~ _ ~ u ~ _ ~ w => For(y, u, w)})     
 
 
 // statements
